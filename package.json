@@ -1,0 +1,19 @@
+{
+  "name": "barometrics",
+  "author": "Garey Simpson <webdesignator@gmail.com>",
+  "description": "Barometric pressure tracker based on date and location",
+  "license": "MIT",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:gareys/barometrics.git"
+  },
+  "keywords": [
+    "barometric",
+    "barometer",
+    "atmostpheric",
+    "pressure",
+    "weather"
+  ]
+}
