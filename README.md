@@ -1,6 +1,6 @@
 # Barometrics
 
-A Node API for weather that takes a location and a date(range) and responds with observed (historical) or forecast (future) data. Built for use with [Pressure](https://github.com/gareys/pressure), an app for tracking barometric pressure variance and its correlation with pain.
+A Node API for weather that takes a location and a date(range) and responds with observed (historical) and/or forecast (future) data. Built for use with [Pressure](https://github.com/gareys/pressure), an app for tracking barometric pressure variance and its correlation with pain.
 
 #### Docs
 

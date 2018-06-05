@@ -1,7 +1,7 @@
 {
   "name": "barometrics",
   "version": "0.1.0",
-  "description": "A Node API for weather that takes a location and a date(range) and responds with observed (historical) or forecast (future) data",
+  "description": "A Node API for weather that provides observed (historical) and/or forecast (future) data",
   "license": "MIT",
   "main": "index.js",
   "repository": {
