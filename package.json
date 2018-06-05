@@ -1,7 +1,7 @@
 {
   "name": "barometrics",
   "author": "Garey Simpson <webdesignator@gmail.com>",
-  "description": "Barometric pressure tracker based on date and location",
+  "description": "A Node API for weather that takes a location and a date(range) and responds with observed (historical) or forecast (future) data",
   "license": "MIT",
   "version": "0.0.1",
   "main": "index.js",
@@ -14,11 +14,16 @@
     "barometer",
     "atmostpheric",
     "pressure",
-    "weather"
+    "weather",
+    "darksky",
+    "api"
   ],
   "dependencies": {
     "axios": "^0.18.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
