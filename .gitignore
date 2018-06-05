@@ -1,4 +1,10 @@
+# dotenv
 .env
-yarn-error.log
 
-node_modules
+# dependencies
+/node_modules
+
+# yarn/npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

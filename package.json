@@ -1,21 +1,25 @@
 {
   "name": "barometrics",
-  "author": "Garey Simpson <webdesignator@gmail.com>",
+  "version": "0.1.0",
   "description": "A Node API for weather that takes a location and a date(range) and responds with observed (historical) or forecast (future) data",
   "license": "MIT",
-  "version": "0.0.1",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com:gareys/barometrics.git"
   },
+  "author": "Garey Simpson <webdesignator@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/gareys/barometrics/issues"
+  },
+  "homepage": "https://github.com/gareys/barometrics#readme",
   "keywords": [
     "barometric",
     "barometer",
     "atmostpheric",
     "pressure",
     "weather",
-    "darksky",
+    "dark sky",
     "api"
   ],
   "dependencies": {
