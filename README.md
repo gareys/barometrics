@@ -2,107 +2,90 @@
 
 A Node API for weather that takes a location and a date(range) and responds with observed (historical) and/or forecast (future) data. Built for use with [Pressure](https://github.com/gareys/pressure), an app for tracking barometric pressure variance and its correlation with pain.
 
-#### Docs
+### Docs
 
-Endpoints
+#### // Endpoints
 
-1. `/weather`
--- `lat`* Latitude
--- `long`* Longitude
--- `dateStart`* start date of date range Unix Epoch time in seconds (when used without dateEnd, only dateStart is queried)
--- `dateEnd` end date of date range in Unix Epoch time in seconds
+#### `/weather`
+**Description:** Returns an array of hourly weather data for the given time period at the specified location
+**Parameters:**
+- `lat`* Latitude
+- `long`* Longitude
+- `dateStart`* start date of date range (in any acceptable date format) (when used without dateEnd, only dateStart is queried)
+- `dateEnd` end date of date range (in any acceptable date format). Total date range can be no more than 5 days. Requests for more than 5 days will be cut at 4 days from dateStart.
+
+#### `/pressure`
+**Description:** Returns an array of hourly atmospheric pressure data (in millibars) for the given time period at the specified location
+**Parameters:**
+- `lat`* Latitude
+- `long`* Longitude
+- `dateStart`* start date of date range (in any acceptable date format) (when used without dateEnd, only dateStart is queried)
+- `dateEnd` end date of date range (in any acceptable date format). Total date range can be no more than 5 days. Requests for more than 5 days will be cut at 4 days from dateStart.
 
 \* *denotes required parameter*
 
-#### Example Usage
+### Example Usage
 
-Example Request
+Where hourly data is available, you can expect to receive 24 hourly items per date, so a request for the max of 5 days of data would return an array with 120 items.
 
-`http://localhost:3000/weather?lat=33.9526&long=-84.5499&dateStart=1526515200&dateEnd=1526601600`
+**Example Request to `/weather`**
 
-Example Response
+`http://localhost:3000/weather?lat=33.9526&long=-84.5499&dateStart=05-30-2018&dateEnd=06-02-2018`
+
+**Example Response from `/weather`**
 
 ```
 [
   {
-    "latitude": 33.9526,
-    "longitude": -84.5499,
-    "timezone": "America/New_York",
-    "hourly": {
-      "summary": "Rain starting in the evening, continuing until night.",
-      "icon": "rain",
-      "data": [
-        {
-          "time": 1526529600,
-          "summary": "Clear",
-          "icon": "clear-night",
-          "precipIntensity": 0,
-          "precipProbability": 0,
-          "temperature": 70.11,
-          "apparentTemperature": 71.13,
-          "dewPoint": 67.62,
-          "humidity": 0.92,
-          "pressure": 1001.69,
-          "windSpeed": 2.61,
-          "windBearing": 98,
-          "cloudCover": 0.06,
-          "visibility": 9.74
-        },
-        ...
-      ]
-    },
-    "daily": {
-      "data": [
-        {
-          "time": 1526529600,
-          "summary": "Rain starting in the evening.",
-          "icon": "rain",
-          "sunriseTime": 1526553404,
-          "sunsetTime": 1526603721,
-          "moonPhase": 0.08,
-          "precipIntensity": 0.0074,
-          "precipIntensityMax": 0.0633,
-          "precipIntensityMaxTime": 1526601600,
-          "precipProbability": 0.78,
-          "precipType": "rain",
-          "temperatureHigh": 77.56,
-          "temperatureHighTime": 1526590800,
-          "temperatureLow": 66.37,
-          "temperatureLowTime": 1526634000,
-          "apparentTemperatureHigh": 78.44,
-          "apparentTemperatureHighTime": 1526590800,
-          "apparentTemperatureLow": 67.35,
-          "apparentTemperatureLowTime": 1526634000,
-          "dewPoint": 67.63,
-          "humidity": 0.87,
-          "pressure": 1004.72,
-          "windSpeed": 1.37,
-          "windBearing": 95,
-          "cloudCover": 0.27,
-          "visibility": 9,
-          "temperatureMin": 68.08,
-          "temperatureMinTime": 1526551200,
-          "temperatureMax": 77.56,
-          "temperatureMaxTime": 1526590800,
-          "apparentTemperatureMin": 69.1,
-          "apparentTemperatureMinTime": 1526551200,
-          "apparentTemperatureMax": 78.44,
-          "apparentTemperatureMaxTime": 1526590800
-        }
-      ]
-    },
-    "offset": -4
+    "time": 1527652800,
+    "summary": "Mostly Cloudy",
+    "icon": "partly-cloudy-night",
+    "precipIntensity": 0.0048,
+    "precipProbability": 0.09,
+    "precipType": "rain",
+    "temperature": 73.67,
+    "apparentTemperature": 75.11,
+    "dewPoint": 71.51,
+    "humidity": 0.93,
+    "pressure": 1010.55,
+    "windSpeed": 5.3,
+    "windGust": 9.09,
+    "windBearing": 170,
+    "cloudCover": 0.88,
+    "uvIndex": 0,
+    "visibility": 4.15,
+    "ozone": 320.1
   },
   ...
 ]
 ```
 
-#### Setup
+**Example Request to `/pressure`**
+
+`http://localhost:3000/weather?lat=33.9526&long=-84.5499&dateStart=05-30-2018&dateEnd=06-02-2018`
+
+**Example Response from `/pressure`**
+
+```
+[
+  {
+    "time": 1527652800,
+    "pressure": 1010.55
+  },
+  {
+    "time": 1527656400,
+    "pressure": 1010.82
+  },
+  ...
+]
+```
+
+### Setup
 
 `yarn install` or `npm install`
 
 `yarn start` or `npm start`
 
-#### Credits
+### Credits
 
 [Powered by Dark Sky](https://darksky.net/poweredby/)
