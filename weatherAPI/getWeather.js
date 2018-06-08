@@ -46,7 +46,7 @@ exports.getWeatherMiddleware = function(req, res, next) {
   getWeather(req.query.lat, req.query.long, req.query.dateStart, req.query.dateEnd)
     .then(response => {
       if (req.route.path !== '/weather') {
-        res.body = response
+        res.locals.weather = response
         next()
       }
       else {

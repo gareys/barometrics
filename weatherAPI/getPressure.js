@@ -10,5 +10,5 @@ function getPressure(weatherData) {
 }
 
 exports.getPressureMiddleware = function(req, res) {
-  res.json(getPressure(res.body))
+  res.json(getPressure(res.locals.weather))
 }
